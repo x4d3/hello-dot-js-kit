@@ -1,25 +1,44 @@
-import logo from './logo.svg';
 import './App.css';
+import {useEffect} from "react";
 
-function App() {
+const DocumentCamera = (props) => {
+  useEffect(() => {
+    const documentAutoCaptureHTMLElement = document.getElementById('x-dot-document-auto-capture');
+    if(documentAutoCaptureHTMLElement){
+      console.log(documentAutoCaptureHTMLElement)
+      documentAutoCaptureHTMLElement.cameraOptions = props;
+    }else{
+      console.log("documentAutoCaptureHTMLElement not found")
+    }
+  })
+
+  return <x-dot-document-auto-capture id="x-dot-document-auto-capture" />;
+};
+
+const modelUrls = {
+  modelJSON: 'blaze_model/model.json',
+  modelBin: 'blaze_model/group1-shard1of1.bin',
+};
+
+const App = () => {
+
+  const handleDocumentPhotoTaken = (image, resolution) => {
+    console.log("handleDocumentPhotoTaken")
+    console.log({image, resolution})
+  };
+
+  // @ts-ignore
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container" style={{height: 500, width: 500}}>
+      <div>Camera</div>
+      <DocumentCamera
+        imageType="png"
+        cameraFacing="environment"
+        photoTakenCb={handleDocumentPhotoTaken}
+        modelUrls={modelUrls}
+      />
     </div>
   );
-}
+};
 
 export default App;
