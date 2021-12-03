@@ -1,5 +1,6 @@
 import './App.css';
 import {useEffect} from "react";
+import 'dot-document-auto-capture';
 
 const DocumentCamera = (props) => {
   useEffect(() => {
@@ -27,7 +28,6 @@ const App = () => {
     console.log({image, resolution})
   };
 
-  // @ts-ignore
   return (
     <div className="container" style={{height: 500, width: 500}}>
       <div>Camera</div>
