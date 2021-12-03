@@ -16,8 +16,8 @@ const DocumentCamera = (props) => {
 };
 
 const modelUrls = {
-  modelJSON: 'blaze_model/model.json',
-  modelBin: 'blaze_model/group1-shard1of1.bin',
+  modelJSON: '/hello-dot-js-kit/blaze_model/model.json',
+  modelBin: '/hello-dot-js-kit/blaze_model/group1-shard1of1.bin',
 };
 
 const App = () => {
