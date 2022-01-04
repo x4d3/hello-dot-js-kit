@@ -17,7 +17,14 @@ const Face = () => {
     console.log({ image, resolution })
 
     const imageSrc = URL.createObjectURL(image);
-    setImageInfo({ imageSrc, resolution })
+
+    const reader = new FileReader();
+    reader.readAsDataURL(image);
+    reader.onloadend = () => {
+      const imageBase64WithTag = reader.result;
+      const imageBase64 = imageBase64WithTag.substr(imageBase64WithTag.indexOf(',') + 1);
+      setImageInfo({ imageBase64, imageSrc, resolution })
+    };
   };
 
   const handleError = (error) => {
@@ -33,7 +40,7 @@ const Face = () => {
   return (
     <div className="container" style={ { height: 500, width: 500 } }>
       <FaceCamera
-        imageType="png"
+        imageType="jpg"
         cameraFacing="user"
         photoTakenCb={ handleFacePhotoTaken }
         onError={ handleError }
@@ -56,7 +63,7 @@ const Face = () => {
         { JSON.stringify(imageInfo, null, 2) }
       </pre>
       { imageInfo.imageSrc && (<img alt="your face" src={ imageInfo.imageSrc } style={ { height: 200, width: null, flex: 1 } }/>) }
-      
+
     </div>
   );
 };
