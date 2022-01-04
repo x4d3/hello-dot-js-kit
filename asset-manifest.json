@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/hello-dot-js-kit/static/css/main.8c8b27cf.chunk.css",
-    "main.js": "/hello-dot-js-kit/static/js/main.012f6638.chunk.js",
-    "main.js.map": "/hello-dot-js-kit/static/js/main.012f6638.chunk.js.map",
+    "main.js": "/hello-dot-js-kit/static/js/main.e84c3104.chunk.js",
+    "main.js.map": "/hello-dot-js-kit/static/js/main.e84c3104.chunk.js.map",
     "runtime-main.js": "/hello-dot-js-kit/static/js/runtime-main.b950a152.js",
     "runtime-main.js.map": "/hello-dot-js-kit/static/js/runtime-main.b950a152.js.map",
-    "static/js/2.4625d84c.chunk.js": "/hello-dot-js-kit/static/js/2.4625d84c.chunk.js",
-    "static/js/2.4625d84c.chunk.js.map": "/hello-dot-js-kit/static/js/2.4625d84c.chunk.js.map",
+    "static/js/2.31082b9b.chunk.js": "/hello-dot-js-kit/static/js/2.31082b9b.chunk.js",
+    "static/js/2.31082b9b.chunk.js.map": "/hello-dot-js-kit/static/js/2.31082b9b.chunk.js.map",
     "static/js/3.93aff286.chunk.js": "/hello-dot-js-kit/static/js/3.93aff286.chunk.js",
     "static/js/3.93aff286.chunk.js.map": "/hello-dot-js-kit/static/js/3.93aff286.chunk.js.map",
     "index.html": "/hello-dot-js-kit/index.html",
     "static/css/main.8c8b27cf.chunk.css.map": "/hello-dot-js-kit/static/css/main.8c8b27cf.chunk.css.map",
-    "static/js/2.4625d84c.chunk.js.LICENSE.txt": "/hello-dot-js-kit/static/js/2.4625d84c.chunk.js.LICENSE.txt"
+    "static/js/2.31082b9b.chunk.js.LICENSE.txt": "/hello-dot-js-kit/static/js/2.31082b9b.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.b950a152.js",
-    "static/js/2.4625d84c.chunk.js",
+    "static/js/2.31082b9b.chunk.js",
     "static/css/main.8c8b27cf.chunk.css",
-    "static/js/main.012f6638.chunk.js"
+    "static/js/main.e84c3104.chunk.js"
   ]
 }
