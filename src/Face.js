@@ -7,20 +7,22 @@ const FaceCamera = (props) => {
     faceAutoCaptureHTMLElement.cameraOptions = props;
   });
 
-  return <x-dot-face-auto-capture id="x-dot-face-auto-capture" />;
+  return <x-dot-face-auto-capture id="x-dot-face-auto-capture"/>;
 };
 
 const Face = () => {
   const [imageInfo, setImageInfo] = useState({});
-  
+
   const handleFacePhotoTaken = (image, resolution) => {
-    console.log({image, resolution})
-    setImageInfo({image, resolution})
+    console.log({ image, resolution })
+
+    const imageSrc = URL.createObjectURL(image);
+    setImageInfo({ imageSrc, resolution })
   };
 
   const handleError = (error) => {
     console.log(error)
-    setImageInfo({error})
+    setImageInfo({ error })
   };
 
   const modelUrls = {
@@ -29,30 +31,32 @@ const Face = () => {
   };
 
   return (
-    <div className="container" style={{height: 500, width: 500}}>
+    <div className="container" style={ { height: 500, width: 500 } }>
       <FaceCamera
         imageType="png"
         cameraFacing="user"
-        photoTakenCb={handleFacePhotoTaken}
-        onError={handleError}
-        modelUrls={modelUrls}
-        uiCustomisation = {{
+        photoTakenCb={ handleFacePhotoTaken }
+        onError={ handleError }
+        modelUrls={ modelUrls }
+        uiCustomisation={ {
           placeholder: {
             facePlaceholder: 'ellipse-solid',
           },
           instructions: {
-            face_too_close: 'TOO CLOSE YOU ',
-            face_too_far: 'TOO FAR!!',
+            face_too_close: 'This is too close',
+            face_too_far: 'Ah no, you are too far',
           },
           colors: {
             placeholderColor: '#EEEEEE',
             instructionTextColor: '#080808',
           },
-        }}
+        } }
       />
       <pre>
-        {JSON.stringify(imageInfo,  null, 2)}
+        { JSON.stringify(imageInfo, null, 2) }
       </pre>
+      { imageInfo.imageSrc && (<img alt="your face" src={ imageInfo.imageSrc } style={ { height: 200, width: null, flex: 1 } }/>) }
+      
     </div>
   );
 };
