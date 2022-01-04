@@ -11,10 +11,7 @@ const FaceCamera = (props) => {
 };
 
 const Face = () => {
-  const [imageInfo, setImageInfo] = useState({
-    image: null,
-    resolution: null,
-  });
+  const [imageInfo, setImageInfo] = useState({});
   
   const handleFacePhotoTaken = (image, resolution) => {
     console.log({image, resolution})
@@ -25,10 +22,10 @@ const Face = () => {
     console.log(error)
     setImageInfo({error})
   };
-  
+
   const modelUrls = {
-    modelJSON: 'blaze_model/model.json',
-    modelBin: 'blaze_model/group1-shard1of1.bin',
+    modelJSON: 'blaze_model/face_4cl/model.json',
+    modelBin: 'blaze_model/face_4cl/group1-shard1of1.bin',
   };
 
   return (
@@ -39,6 +36,19 @@ const Face = () => {
         photoTakenCb={handleFacePhotoTaken}
         onError={handleError}
         modelUrls={modelUrls}
+        uiCustomisation = {{
+          placeholder: {
+            facePlaceholder: 'ellipse-solid',
+          },
+          instructions: {
+            face_too_close: 'TOO CLOSE YOU ',
+            face_too_far: 'TOO FAR!!',
+          },
+          colors: {
+            placeholderColor: '#EEEEEE',
+            instructionTextColor: '#080808',
+          },
+        }}
       />
       <pre>
         {JSON.stringify(imageInfo,  null, 2)}
